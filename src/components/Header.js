@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className="absolute bg-gradient-to-b from-black">
+    <div className="absolute bg-gradient-to-b from-black z-10">
       <img
         className="w-44 py-3 ml-28"
         src="
