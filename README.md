@@ -15,4 +15,8 @@ content:["./src/**/*.{html,js}"]
 @tailwind components;
 @tailwind utilities;
 
---
+--Add Routing to the website
+
+- createBrowserRouter - path
+  -element
+  -And now Wrap the Project inside RouterProvider
