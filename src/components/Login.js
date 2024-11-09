@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Header from "./Header";
+import { checkValidData } from "../utils/validate";
 
 const Login = () => {
   const [isSignInForm, setIsSIgnInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const email = useRef(null);
+  const password = useRef(null);
+  const HandleButtonClick = () => {
+    //Validating the form data i.e the email and password using regex in validate file after clicking on Signin / Signup button
+    //check readme for that useref current
+    const message = checkValidData(email.current.value, password.current.value);
+    setErrorMessage(message);
+
+    //Now if its valid we will do SignIn / SignOff
+  };
+
   const toogleSignInForm = () => {
     setIsSIgnInForm(!isSignInForm);
   };
@@ -16,9 +29,12 @@ const Login = () => {
           alt="Netflix-background-image"
         />
       </div>
-      <form className="absolute p-12 bg-black bg-opacity-75 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="absolute p-12 bg-black bg-opacity-75 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg"
+      >
         <h1 className="text-3xl text-white font-bold py-4 text-center">
-          {isSignInForm ? "Sign In watch from 2.33.35" : "Sign Up"}
+          {isSignInForm ? "Sign In 2.17.19" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
@@ -28,16 +44,22 @@ const Login = () => {
           />
         )}
         <input
+          ref={email}
           type="text"
           placeholder="Email Address"
-          className="pl-4 my-3 py-4 w-full text-white bg-stone-800 bg-opacity-60 placeholder-white rounded-lg"
+          className="pl-4 my-3 py-4 w-full text-white bg-stone-800 bg-opacity-90 placeholder-white rounded-lg"
         />
         <input
+          ref={password}
           type="password"
           placeholder="Password"
-          className="pl-4 my-3 py-4 w-full text-white bg-stone-800 bg-opacity-60 placeholder-white rounded-lg"
+          className="pl-4 my-3 py-4 w-full text-white bg-stone-800 bg-opacity-90 placeholder-white rounded-lg"
         />
-        <button className="my-4 py-4 text-white bg-red-600 font-bold w-full rounded-lg">
+        <p className="text-red-600 font-bold py-4">{errorMessage}</p>
+        <button
+          className="my-4 py-4 text-white bg-red-600 font-bold w-full rounded-lg"
+          onClick={HandleButtonClick}
+        >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <p
