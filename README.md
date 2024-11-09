@@ -32,3 +32,10 @@ console.log(email)
 console.log(email.current.value)
 
 //checkValidData function is doing the form validation for Email Password using regex
+
+//firebase code aaded which is required to connect our app to firebase server
+To Deploy
+
+firebase login
+firebase init
+firebase deploy
