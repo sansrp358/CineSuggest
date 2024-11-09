@@ -30,3 +30,5 @@ eg - const email = useRef(null);
 
 console.log(email)
 console.log(email.current.value)
+
+//checkValidData function is doing the form validation for Email Password using regex

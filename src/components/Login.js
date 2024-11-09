@@ -7,10 +7,11 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const email = useRef(null);
   const password = useRef(null);
+  const name = useRef(null);
   const HandleButtonClick = () => {
     //Validating the form data i.e the email and password using regex in validate file after clicking on Signin / Signup button
     //check readme for that useref current
-    const message = checkValidData(email.current.value, password.current.value);
+    const message = checkValidData(email.current.value, password.current.value, name.current.value);
     setErrorMessage(message);
 
     //Now if its valid we will do SignIn / SignOff
@@ -34,10 +35,11 @@ const Login = () => {
         className="absolute p-12 bg-black bg-opacity-75 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg"
       >
         <h1 className="text-3xl text-white font-bold py-4 text-center">
-          {isSignInForm ? "Sign In 2.17.19" : "Sign Up"}
+          {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
+            ref={name}
             type="text"
             placeholder="Name"
             className="pl-4 my-3 py-4 w-full text-white bg-stone-800 bg-opacity-60 placeholder-white rounded-lg"
