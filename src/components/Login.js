@@ -1,6 +1,11 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSIgnInForm] = useState(true);
@@ -11,10 +16,52 @@ const Login = () => {
   const HandleButtonClick = () => {
     //Validating the form data i.e the email and password using regex in validate file after clicking on Signin / Signup button
     //check readme for that useref current
-    const message = checkValidData(email.current.value, password.current.value, name.current.value);
+    const message = checkValidData(
+      email.current?.value,
+      password.current?.value,
+      name.current?.value
+    );
     setErrorMessage(message);
+    if (message) return; //This implies that if there is something returened in meesage means we have some error then dont go ahead just return
 
+    //if message returns null then we have no error and now we can sign in or sign upp
     //Now if its valid we will do SignIn / SignOff
+
+    if (!isSignInForm) {
+      //Signup logic
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " - " + errorMessage);
+        });
+    } else {
+      //SignIn Logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " - " + errorMessage);
+        });
+    }
   };
 
   const toogleSignInForm = () => {
@@ -35,7 +82,7 @@ const Login = () => {
         className="absolute p-12 bg-black bg-opacity-75 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg"
       >
         <h1 className="text-3xl text-white font-bold py-4 text-center">
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {isSignInForm ? "Sign In 1.06.44" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
