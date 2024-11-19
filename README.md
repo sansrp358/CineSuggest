@@ -39,3 +39,11 @@ To Deploy
 firebase login
 firebase init
 firebase deploy
+
+--Firebase API
+
+1. createUserWithEmailAndPassword ---SIgnup
+2. signInWithEmailAndPassword--------SignIn
+3. onAuthStateChanged----------------For actionn like after sign up/ after sign in//afet logout
+   this particular apii is called whenever the user signin, signout or logout, whenever there is authetication state change --its kind of linke event listner--this will be called automatically
+   and this is added in useEffect
