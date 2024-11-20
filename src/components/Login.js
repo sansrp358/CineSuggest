@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import {
@@ -14,7 +14,7 @@ import { addUser } from "../utils/userSlice";
 const Login = () => {
   const [isSignInForm, setIsSIgnInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
+
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
@@ -45,7 +45,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current?.value,
-            photoURL: "https://cdn-icons-png.flaticon.com/512/3404/3404932.png",
+            photoURL: "https://cdn-icons-png.flaticon.com/512/219/219969.png",
           })
             .then(() => {
               // Profile updated!
@@ -58,7 +58,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -81,9 +80,29 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current?.value,
+            photoURL: "https://cdn-icons-png.flaticon.com/512/219/219969.png",
+          })
+            .then(() => {
+              // Profile updated!
+              const { uid, email, displayName, photoURL } = auth.currentUser; //here we are using auth.currentUser as if we use user its not updated
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+            })
+            .catch((error) => {
+              // An error occurred
+              setErrorMessage(error.message);
+            });
           console.log(user);
-          navigate("/browse");
         })
+
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
