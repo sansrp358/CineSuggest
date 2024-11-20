@@ -21,7 +21,7 @@ const Header = () => {
       });
   };
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       //Sign up and Sign In
       if (user) {
         const { uid, email, displayName, photoURL } = user;
@@ -40,6 +40,8 @@ const Header = () => {
         navigate("/");
       }
     });
+    //unsubscribe when component unmounts
+    return () => unsubscribe();
   }, []);
   return (
     <div className="absolute w-screen bg-gradient-to-b from-black z-10 flex justify-between">

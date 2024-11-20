@@ -47,3 +47,8 @@ firebase deploy
 3. onAuthStateChanged----------------For actionn like after sign up/ after sign in//afet logout
    this particular apii is called whenever the user signin, signout or logout, whenever there is authetication state change --its kind of linke event listner--this will be called automatically
    and this is added in useEffect
+
+-- added the updateProfile code in SignIn API as well as becaus the userimage was loading only for signup so added that, need to confirm once if thats okay
+
+--added the navigate code only in header component to avoid redirecting of the pages
+--added unsubscribe to the onAUthStateChange callback when the component unmounts
