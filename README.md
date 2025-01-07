@@ -52,3 +52,5 @@ firebase deploy
 
 --added the navigate code only in header component to avoid redirecting of the pages
 --added unsubscribe to the onAUthStateChange callback when the component unmounts
+--added constant file for hardcoded value
+--created a account on TMDB and there in the edit profile - API - request API key and register your app to get API Key and API Read Access token
