@@ -83,7 +83,8 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current?.value,
-            photoURL: "https://cdn-icons-png.flaticon.com/512/219/219969.png",
+            photoURL:
+              "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg",
           })
             .then(() => {
               // Profile updated!
