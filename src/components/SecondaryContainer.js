@@ -10,6 +10,22 @@ const SecondaryContainer = () => {
         title={"Now Playing"}
         movies={movies.nowPlayingMovies}
       ></MovieList>
+      <MovieList
+        title={"Korean Drama"}
+        movies={movies.nowPlayingMovies}
+      ></MovieList>
+      <MovieList
+        title={"Susupense & Thriller"}
+        movies={movies.nowPlayingMovies}
+      ></MovieList>
+      <MovieList
+        title={"Romantic"}
+        movies={movies.nowPlayingMovies}
+      ></MovieList>
+      <MovieList
+        title={"Upcoming Movies"}
+        movies={movies.nowPlayingMovies}
+      ></MovieList>
     </div>
   );
 };
