@@ -119,7 +119,7 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div>
+      <div className="bg-gradient-to-r from-black">
         <img
           className="absolute filter brightness-1"
           src={NETFLIX_BG_IMG}
@@ -131,7 +131,7 @@ const Login = () => {
         className="absolute p-12 bg-black bg-opacity-75 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg"
       >
         <h1 className="text-3xl text-white font-bold py-4 text-center">
-          {isSignInForm ? "Sign In 33.29 " : "Sign Up"}
+          {isSignInForm ? "Sign In 3.49.51 " : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
@@ -158,7 +158,7 @@ const Login = () => {
           className="my-4 py-4 text-white bg-red-600 font-bold w-full rounded-lg"
           onClick={HandleButtonClick}
         >
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {isSignInForm ? "Sign In " : "Sign Up"}
         </button>
         <p
           className="text-white font-bold py-6 cursor-pointer"

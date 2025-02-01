@@ -44,13 +44,27 @@ const Header = () => {
     //unsubscribe when component unmounts
     return () => unsubscribe();
   }, []);
+
+  const handleGptSearchClick = () => {
+    
+  };
   return (
     <div className="absolute w-screen bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44 py-2 ml-18" src={LOGO} alt="NetflixLogo" />
+      <img className="w-44 " src={LOGO} alt="NetflixLogo" />
       {user && (
         <div className="flex p-2">
-          <img src={user?.photoURL} alt="UserIcon" className="w-12 h-12" />
-          <button onClick={handleSignOut} className="font-bold text-white">
+          <button
+            className="text-white font-bold py-2 px-4 m-2 bg-red-600 rounded-xl"
+            onClick={handleGptSearchClick}
+          >
+            GPT Search
+          </button>
+          <img src={user?.photoURL} alt="UserIcon" className="w-10 h-12 pt-2" />
+
+          <button
+            onClick={handleSignOut}
+            className="font-bold text-white bg-red-600  py-2 px-4 m-2 rounded-xl"
+          >
             Sign Out
           </button>
         </div>
