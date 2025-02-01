@@ -121,7 +121,7 @@ const Login = () => {
       <Header />
       <div>
         <img
-          className="absolute"
+          className="absolute filter brightness-1"
           src={NETFLIX_BG_IMG}
           alt="Netflix-background-image"
         />
