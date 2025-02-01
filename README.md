@@ -54,3 +54,5 @@ firebase deploy
 --added unsubscribe to the onAUthStateChange callback when the component unmounts
 --added constant file for hardcoded value
 --created a account on TMDB and there in the edit profile - API - request API key and register your app to get API Key and API Read Access token
+--completed the MainContainer, with the VideoTitle and VideoBackground
+--Completed the SecondaryContainer and displayed the MovieList Using Various TMDB API for Now Playing, Popular, Upcoming and Trending Movies and displayed them by creating various actions in the slice
