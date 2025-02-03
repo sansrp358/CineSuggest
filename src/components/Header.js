@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const Header = () => {
   }, []);
 
   const handleGptSearchClick = () => {
-    
+    dispatch(toggleGptSearchView());
   };
   return (
     <div className="absolute w-screen bg-gradient-to-b from-black z-10 flex justify-between">
