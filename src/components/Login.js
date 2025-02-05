@@ -64,7 +64,7 @@ const Login = () => {
               // An error occurred
               setErrorMessage(error.message);
             });
-          console.log(user);
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -131,7 +131,7 @@ const Login = () => {
         className="absolute p-12 bg-black bg-opacity-75 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg"
       >
         <h1 className="text-3xl text-white font-bold py-4 text-center">
-          {isSignInForm ? "Sign In 3.14.04" : "Sign Up"}
+          {isSignInForm ? "Sign In 2.49.20" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
