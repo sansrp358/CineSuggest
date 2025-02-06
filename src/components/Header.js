@@ -53,26 +53,30 @@ const Header = () => {
   const handleLanguageChange = (e) => {
     dispatch(changeLanguage(e.target.value));
   };
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   return (
     <div className="absolute w-screen bg-gradient-to-b from-black z-10 flex justify-between">
       <img className="w-44 " src={LOGO} alt="NetflixLogo" />
       {user && (
         <div className="flex p-2">
-          <select
-            className="p-2 m-2 bg-red-600 text-white font-bold rounded-lg"
-            onChange={handleLanguageChange}
-          >
-            {SUPPORTED_LANGUAGES.map((lang) => (
-              <option key={lang.identifier} value={lang.identifier}>
-                {lang.name}
-              </option>
-            ))}
-          </select>
+          {showGptSearch && (
+            <select
+              className="p-2 m-2 bg-red-600 text-white font-bold rounded-lg"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+
           <button
             className="text-white font-bold py-2 px-4 m-2 bg-red-600 rounded-xl"
             onClick={handleGptSearchClick}
           >
-            GPT Search
+            {showGptSearch ? "Home Page" : "GPT Search"}
           </button>
           <img src={user?.photoURL} alt="UserIcon" className="w-10 h-12 pt-2" />
 
